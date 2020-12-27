@@ -1,16 +1,31 @@
 module.exports = {
-  root: true,
   env: {
-    node: true
+    "browser": true,
+    "amd": true,
+    "node": true
   },
-  extends: ["plugin:vue/vue3-essential", "eslint:recommended", "@vue/prettier"],
+  parser: "vue-eslint-parser",
   parserOptions: {
-    parser: "babel-eslint"
+    "parser": "babel-eslint",
+    "sourceType": "module"
   },
+  extends: [
+    'plugin:vue/vue3-essential',
+    'plugin:vue/vue3-recommended',
+    'plugin:vue/vue3-strongly-recommended',
+    'eslint:recommended'
+  ],
   rules: {
-    "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "vue/no-multiple-template-root": 0
+    'comma-dangle': 'off',
+    'class-methods-use-this': 'off',
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
+    'implicit-arrow-linebreak': 'off',
+    'import/prefer-default-export': 'off',
+    'keyword-spacing': ["error", { "before": true }],
+    'vue/component-name-in-template-casing': ['error', 'PascalCase', {
+      'ignores': []
+    }]
   },
   overrides: [
     {
@@ -23,4 +38,4 @@ module.exports = {
       }
     }
   ]
-};
+}
